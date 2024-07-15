@@ -1,5 +1,6 @@
 <?php
-require_once "./include/_objects.php";
+require_once "./include/_Student.php";
+require_once "./include/_Prof.php";
 require_once "./include/_functions.php";
 var_dump(intval(date('Y')));
 ?>
@@ -148,8 +149,8 @@ var_dump(intval(date('Y')));
             </p>
             <div class="exercice-sandbox">
                 <?php
-                echo getSentence($student1);
-                echo getSentence($student2);
+                echo '<p>' . $student1->introduceMyself() . '</p>';
+                echo '<p>' . $student2->introduceMyself() . '</p>';
                 ?>
             </div>
         </section>
