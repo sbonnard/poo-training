@@ -25,6 +25,11 @@ class Student
         $this->school = $school;
     }
 
+    // ---------------------------------
+    // GETTERS & SETTERS
+    // ---------------------------------
+
+
     /**
      * set first name
      *
@@ -68,7 +73,7 @@ class Student
     }
 
 
-    
+
     /**
      * set the level
      *
@@ -79,7 +84,7 @@ class Student
     {
         $this->level = $level;
     }
-    
+
     /**
      * get the level
      *
@@ -89,7 +94,7 @@ class Student
     {
         return $this->level;
     }
-    
+
 
     /**
      * Get the value of birthdate
@@ -111,8 +116,31 @@ class Student
         $this->birthdate = $birthdate;
     }
 
+    /**
+     * get school
+     *
+     * @return string
+     */
+    public function getSchool(): string
+    {
+        return $this->school;
+    }
 
-        /**
+    /**
+     * set school
+     *
+     * @return string
+     */
+    public function setSchool(string $school): void
+    {
+        $this->school = $school;
+    }
+
+    // ---------------------------------
+    // INSTANCE METHODS
+    // ---------------------------------
+
+    /**
      * get the age
      *
      * @return int
@@ -120,16 +148,6 @@ class Student
     public function getAge(): int
     {
         return $this->birthdate->diff(new DateTime())->y;
-    }
-    
-    public function getSchool():string
-    {
-        return $this->school;
-    }
-    
-    public function setSchool(string $school): void
-    {
-        $this->school = $school;
     }
 }
 
