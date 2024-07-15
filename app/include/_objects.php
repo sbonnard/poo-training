@@ -6,6 +6,7 @@ class Student
     private string $firstname;
     private string $birthdate;
     private string $level;
+    private string $school;
 
     /**
      * A constructor for all infos of the object Student.
@@ -15,12 +16,13 @@ class Student
      * @param string $birthdate - Student's birthdate.
      * @param string $level - Student's level.
      */
-    public function __construct(string $lastname, string $firstname, string $birthdate, string $level)
+    public function __construct(string $lastname, string $firstname, string $birthdate, string $level, string $school)
     {
         $this->lastname = $lastname;
         $this->firstname = $firstname;
         $this->birthdate = $birthdate;
         $this->level = $level;
+        $this->school = $school;
     }
 
     /**
@@ -70,7 +72,7 @@ class Student
      *
      * @return integer
      */
-    public function getbirthdate(): string
+    public function getBirthdate(): string
     {
         return $this->birthdate;
     }
@@ -81,7 +83,7 @@ class Student
      * @param string $birthdate - Student's birthdate.
      * @return void
      */
-    public function setbirthdate(string $birthdate): void
+    public function setBirthdate(string $birthdate): void
     {
         $this->birthdate = $birthdate;
     }
@@ -106,8 +108,23 @@ class Student
     {
         $this->level = $level;
     }
+
+    // public function getAge():int {
+    //     $currentYear = date("Y");
+    //     $age = new DateTime($currentYear, $this->birthdate);
+    // }
+
+    public function getSchool():string
+    {
+        return $this->school;
+    }
+
+    public function setSchool(string $school): void
+    {
+        $this->school = $school;
+    }
 }
 
 
-$student1 = new Student('Molotov', 'Zangief', 15, '2nde');
-$student2 = new Student('Li', 'Chun-Li', 11, '6ème');
+$student1 = new Student('Molotov', 'Zangief', 15, '2nde', '');
+$student2 = new Student('Li', 'Chun-Li', 11, '6ème', '');

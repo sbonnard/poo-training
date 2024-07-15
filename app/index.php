@@ -85,8 +85,8 @@ require_once "./include/_objects.php"
             </p>
             <div class="exercice-sandbox">
                 <?php
-                $student1->setbirthdate('1988-06-01');
-                $student2->setbirthdate('1990-03-01');
+                $student1->setBirthdate('1988-06-01');
+                $student2->setBirthdate('1990-03-01');
 
                 echo '<p>La date de naissance de ' . $student1->getFirstname() . ' est : ' . $student1->getBirthdate() . '.</p>';
                 echo '<p>La date de naissance de ' . $student2->getFirstname() . ' est : ' . $student2->getBirthdate() . '.</p>';
@@ -129,7 +129,13 @@ require_once "./include/_objects.php"
                 Ajouter la propriété et ajouter la donnée sur les élèves.
             </p>
             <div class="exercice-sandbox">
+                <?php
+                $student1->setSchool('Lycée de catch de Moscou');
+                $student2->setSchool('Collège de Pékin');
 
+                echo '<p>' . $student1->getFirstname() . ' va au ' . $student1->getSchool() .  '.</p>';
+                echo '<p>' . $student2->getFirstname() . ' va au ' . $student2->getSchool() .  '.</p>';
+                ?>
             </div>
         </section>
 
@@ -143,7 +149,15 @@ require_once "./include/_objects.php"
                 Afficher la phrase de présentation des 2 élèves.
             </p>
             <div class="exercice-sandbox">
-
+                <?php
+                echo '<p>Bonjour, je m\'appelle '
+                    . $student1->getFirstname()
+                    . ', j\'ai '
+                    . $diffStudent1->format('%y')
+                    . ' ans et je vais à l\'école '
+                    . $student1->getSchool() . ' en classe de '
+                    . $student1->getLevel() . '.</p>'
+                ?>
             </div>
         </section>
 
