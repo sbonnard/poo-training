@@ -4,7 +4,7 @@ class Student
 {
     private string $lastname;
     private string $firstname;
-    private string $birthdate;
+    private DateTime $birthdate;
     private string $level;
     private string $school;
 
@@ -16,7 +16,7 @@ class Student
      * @param string $birthdate - Student's birthdate.
      * @param string $level - Student's level.
      */
-    public function __construct(string $lastname, string $firstname, string $birthdate, string $level, string $school)
+    public function __construct(string $lastname, string $firstname, DateTime $birthdate, string $level, string $school)
     {
         $this->lastname = $lastname;
         $this->firstname = $firstname;
@@ -26,28 +26,18 @@ class Student
     }
 
     /**
-     * Get student's lastname.
+     * set first name
      *
-     * @return string
-     */
-    public function getLastname(): string
-    {
-        return $this->lastname;
-    }
-
-    /**
-     * Set student's lastname.
-     *
-     * @param string $lastname - The lastname of a student.
+     * @param string $firstname
      * @return void
      */
-    public function setLastname(string $lastname): void
+    public function setFirstname(string $firstname): void
     {
-        $this->lastname = $lastname;
+        $this->firstname = $firstname;
     }
 
     /**
-     * Get student's firstname.
+     * get the first name
      *
      * @return string
      */
@@ -57,39 +47,41 @@ class Student
     }
 
     /**
-     * Set student's firstname.
+     * set last name
      *
-     * @param string $firstname - Student's firstname.
+     * @param string $lastname
      * @return void
      */
-    public function setFirstname(string $firstname): void
+    public function setLastname(string $lastname): void
     {
-        $this->firstname = $firstname;
+        $this->lastname = $lastname;
     }
 
     /**
-     * Get student's birthdate.
+     * get the last name
      *
-     * @return integer
+     * @return string
      */
-    public function getBirthdate(): string
+    public function getLastname(): string
     {
-        return $this->birthdate;
+        return $this->lastname;
     }
 
+
+    
     /**
-     * Set student's birthdate.
+     * set the level
      *
-     * @param string $birthdate - Student's birthdate.
+     * @param string $level
      * @return void
      */
-    public function setBirthdate(string $birthdate): void
+    public function setLevel(string $level): void
     {
-        $this->birthdate = $birthdate;
+        $this->level = $level;
     }
-
+    
     /**
-     * Get student's school level.
+     * get the level
      *
      * @return string
      */
@@ -97,28 +89,44 @@ class Student
     {
         return $this->level;
     }
+    
 
     /**
-     * Set student's school level.
-     *
-     * @param string $level - Student's school level.
-     * @return void
+     * Get the value of birthdate
+     * @return DateTime a birthdate
      */
-    public function setLevel(string $level): void
+    public function getBirthdate(): DateTime
     {
-        $this->level = $level;
+        return $this->birthdate;
     }
 
-    // public function getAge():int {
-    //     $currentYear = date("Y");
-    //     $age = new DateTime($currentYear, $this->birthdate);
-    // }
+    /**
+     * Set the value of birthdate.
+     *@param DateTime $birthdate a birthdate.
+     * @return  void
+     */
+    public function setBirthdate(DateTime $birthdate): void
+    {
 
+        $this->birthdate = $birthdate;
+    }
+
+
+        /**
+     * get the age
+     *
+     * @return int
+     */
+    public function getAge(): int
+    {
+        return $this->birthdate->diff(new DateTime())->y;
+    }
+    
     public function getSchool():string
     {
         return $this->school;
     }
-
+    
     public function setSchool(string $school): void
     {
         $this->school = $school;
@@ -126,5 +134,7 @@ class Student
 }
 
 
-$student1 = new Student('Molotov', 'Zangief', 15, '2nde', '');
-$student2 = new Student('Li', 'Chun-Li', 11, '6ème', '');
+
+
+$student1 = new Student('Molotov', 'Zangief', new DateTime(), '2nde', '');
+$student2 = new Student('Li', 'Chun-Li', new DateTime(), '6ème', '');

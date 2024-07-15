@@ -1,5 +1,7 @@
 <?php
-require_once "./include/_objects.php"
+require_once "./include/_objects.php";
+require_once "./include/_functions.php";
+var_dump(intval(date('Y')));
 ?>
 
 <!DOCTYPE html>
@@ -41,6 +43,9 @@ require_once "./include/_objects.php"
             </p>
             <div class="exercice-sandbox">
                 <?php
+                $student1 = new Student('Molotov', 'Zangief', new DateTime(), '2nde', '');
+                $student2 = new Student('Li', 'Chun-Li', new DateTime(), '6ème', '');
+
                 var_dump($student1);
                 var_dump($student2);
                 ?>
@@ -85,11 +90,13 @@ require_once "./include/_objects.php"
             </p>
             <div class="exercice-sandbox">
                 <?php
-                $student1->setBirthdate('1988-06-01');
-                $student2->setBirthdate('1990-03-01');
+                $student1->setBirthdate(new DateTime('1994-06-01'));
+                $student2->setBirthdate(new DateTime('1996-04-11'));
 
-                echo '<p>La date de naissance de ' . $student1->getFirstname() . ' est : ' . $student1->getBirthdate() . '.</p>';
-                echo '<p>La date de naissance de ' . $student2->getFirstname() . ' est : ' . $student2->getBirthdate() . '.</p>';
+                var_dump($student1->getBirthdate());
+
+                echo '<p>La date de naissance de ' . $student1->getFirstname() . ' est : ' . $student1->getBirthdate()->format('Y-m-d') . '.</p>';
+                echo '<p>La date de naissance de ' . $student2->getFirstname() . ' est : ' . $student2->getBirthdate()->format('Y-m-d') . '.</p>';
                 ?>
             </div>
         </section>
@@ -103,18 +110,9 @@ require_once "./include/_objects.php"
                 Afficher l'âge des 2 élèves.
             </p>
             <div class="exercice-sandbox">
-                <?php
-                $today = new DateTime();
-
-                $birthdateStudent1 = new DateTime($student1->getBirthdate());
-                $diffStudent1 = date_diff($today, $birthdateStudent1);
-
-                echo '<p>L\'âge de ' . $student1->getFirstname() . ' est ' . $diffStudent1->format('%y') . ' ans.</p>';
-
-                $birthdateStudent2 = new DateTime($student2->getBirthdate());
-                $diffStudent2 = date_diff($today, $birthdateStudent2);
-
-                echo '<p>L\'âge de ' . $student2->getFirstname() . ' est ' . $diffStudent2->format('%y') . ' ans.</p>';
+            <?php
+                    echo '<p>J\'ai ' . $student1->getAge() . ' ans. <br>';
+                    echo 'J\'ai ' . $student2->getAge() . ' ans.</p>';
                 ?>
 
             </div>
@@ -150,13 +148,8 @@ require_once "./include/_objects.php"
             </p>
             <div class="exercice-sandbox">
                 <?php
-                echo '<p>Bonjour, je m\'appelle '
-                    . $student1->getFirstname()
-                    . ', j\'ai '
-                    . $diffStudent1->format('%y')
-                    . ' ans et je vais à l\'école '
-                    . $student1->getSchool() . ' en classe de '
-                    . $student1->getLevel() . '.</p>'
+                echo getSentence($student1);
+                echo getSentence($student2);
                 ?>
             </div>
         </section>
