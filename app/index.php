@@ -1,3 +1,7 @@
+<?php
+require_once "./include/_objects.php"
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +28,7 @@
                 </ul>
             </nav>
         </header>
-        
+
         <!-- QUESTION 1 -->
         <section class="exercice">
             <h2 class="exercice-ttl">Question 1</h2>
@@ -36,10 +40,13 @@
                 Créer 2 étudiants différents.
             </p>
             <div class="exercice-sandbox">
-    
+                <?php
+                var_dump($student1);
+                var_dump($student2);
+                ?>
             </div>
         </section>
-        
+
         <!-- QUESTION 2 -->
         <section class="exercice">
             <h2 class="exercice-ttl">Question 2</h2>
@@ -49,10 +56,25 @@
                 Modifier le niveau scolaire des 2 élèves et les afficher.
             </p>
             <div class="exercice-sandbox">
-    
+                <div>
+                    <?php
+                    $student1->setLevel("première");
+
+                    echo '<p>' . $student1->getFirstname() . ' est en ' . $student1->getLevel() . '.</p>';
+
+                    ?>
+                </div>
+                <div>
+                    <?php
+
+                    $student2->setLevel("5ème");
+
+                    echo '<p>' . $student2->getFirstname() . ' est en ' . $student2->getLevel() . '.</p>';
+                    ?>
+                </div>
             </div>
         </section>
-        
+
         <!-- QUESTION 3 -->
         <section class="exercice">
             <h2 class="exercice-ttl">Question 3</h2>
@@ -62,10 +84,16 @@
                 Mettez à jour l'instanciation des 2 élèves et afficher leur date de naissance.
             </p>
             <div class="exercice-sandbox">
+                <?php
+                $student1->setbirthdate('1988-06-01');
+                $student2->setbirthdate('1990-03-01');
 
+                echo '<p>La date de naissance de ' . $student1->getFirstname() . ' est : ' . $student1->getBirthdate() . '.</p>';
+                echo '<p>La date de naissance de ' . $student2->getFirstname() . ' est : ' . $student2->getBirthdate() . '.</p>';
+                ?>
             </div>
         </section>
-        
+
         <!-- QUESTION 4 -->
         <section class="exercice">
             <h2 class="exercice-ttl">Question 4</h2>
@@ -75,11 +103,23 @@
                 Afficher l'âge des 2 élèves.
             </p>
             <div class="exercice-sandbox">
+                <?php
+                $today = new DateTime();
 
+                $birthdateStudent1 = new DateTime($student1->getBirthdate());
+                $diffStudent1 = date_diff($today, $birthdateStudent1);
+
+                echo '<p>L\'âge de ' . $student1->getFirstname() . ' est ' . $diffStudent1->format('%y') . ' ans.</p>';
+
+                $birthdateStudent2 = new DateTime($student2->getBirthdate());
+                $diffStudent2 = date_diff($today, $birthdateStudent2);
+
+                echo '<p>L\'âge de ' . $student2->getFirstname() . ' est ' . $diffStudent2->format('%y') . ' ans.</p>';
+                ?>
 
             </div>
         </section>
-        
+
         <!-- QUESTION 5 -->
         <section class="exercice">
             <h2 class="exercice-ttl">Question 5</h2>
@@ -92,7 +132,7 @@
 
             </div>
         </section>
-        
+
         <!-- QUESTION 6 -->
         <section class="exercice">
             <h2 class="exercice-ttl">Question 6</h2>
@@ -110,4 +150,5 @@
     </div>
     <div class="copyright">© Guillaume Belleuvre, 2023 - DWWM</div>
 </body>
+
 </html>
