@@ -275,7 +275,7 @@ class Teacher extends Person
 
     public function addSubject(string $newSubject): void
     {
-        $this->subjects[] .= $newSubject;
+        $this->subjects[] = $newSubject;
     }
 
     public function showSubjects()
