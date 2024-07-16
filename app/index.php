@@ -1,6 +1,12 @@
 <?php
-require_once "./include/_Classes.php";
-require_once "./include/_functions.php";
+namespace App\School;
+spl_autoload_register();
+
+use App\School\Student;
+use DateTime;
+
+// require_once "./include/_Classes.php";
+// require_once "./include/_functions.php";
 ?>
 
 <!DOCTYPE html>

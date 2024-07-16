@@ -1,5 +1,10 @@
 <?php
-require_once "./include/_Classes.php";
+
+namespace App\School;
+
+spl_autoload_register();
+
+use App\School\Teacher;
 ?>
 
 <!DOCTYPE html>

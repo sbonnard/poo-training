@@ -1,3 +1,7 @@
+<?php
+// use App\School\Teacher;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,21 +28,23 @@
                 </ul>
             </nav>
         </header>
-        
+
         <!-- QUESTION 1 -->
         <section class="exercice">
             <h2 class="exercice-ttl">Question 1</h2>
-            <p class="exercice-txt"> 
+            <p class="exercice-txt">
                 Créer les dossiers "App/Objects" et y ajouter un fichier PHP pour chacune des classes créées lors des exercices précédents.
                 <br>
                 Assurer le fonctionnement du code des exercices précédents.
             </p>
             <div class="exercice-sandbox">
-                
+                <?php
+                echo "<p>Fait avec le fichier App\School.</p>";
+                ?>
             </div>
         </section>
-        
-        
+
+
         <!-- QUESTION 2 -->
         <section class="exercice">
             <h2 class="exercice-ttl">Question 2</h2>
@@ -48,11 +54,13 @@
                 Automatiser l'import des fichiers en utilisant les namespaces.
             </p>
             <div class="exercice-sandbox">
-                
+                <?php
+                echo "<p>Fait.</p>";
+                ?>
             </div>
         </section>
-        
-        
+
+
         <!-- QUESTION 3 -->
         <section class="exercice">
             <h2 class="exercice-ttl">Question 3</h2>
@@ -60,11 +68,14 @@
                 Mutualiser le code commun des 2 classes grâce à l'héritage.
             </p>
             <div class="exercice-sandbox">
-                
+                <?php
+                echo "<p>Fait.</p>";
+                ?>
             </div>
         </section>
 
     </div>
     <div class="copyright">© Guillaume Belleuvre, 2023 - DWWM</div>
 </body>
+
 </html>
