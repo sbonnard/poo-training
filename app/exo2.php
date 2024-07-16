@@ -1,10 +1,7 @@
 <?php
-
-namespace App\School;
-
 spl_autoload_register();
 
-use App\School\Teacher;
+use App\Objects\Teacher;
 ?>
 
 <!DOCTYPE html>

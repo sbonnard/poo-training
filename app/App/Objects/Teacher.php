@@ -1,14 +1,10 @@
 <?php
 
-namespace App\School;
+namespace App\Objects;
 
 
 class Teacher extends Person
 {
-
-    // STATIC PROPERTIES
-    public const TITLE = 'Professeur';
-
     // INSTANCE PROPERTIES
     private array $subjects = [];
 

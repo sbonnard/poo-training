@@ -1,9 +1,9 @@
 <?php
 
-namespace App\School;
+namespace App\Objects;
 
 use Datetime;
-use App\School\Person;
+use App\Objects\Person;
 
 class Student extends Person
 {

@@ -1,12 +1,8 @@
 <?php
-namespace App\School;
 spl_autoload_register();
 
-use App\School\Student;
-use DateTime;
+use App\Objects\Student;
 
-// require_once "./include/_Classes.php";
-// require_once "./include/_functions.php";
 ?>
 
 <!DOCTYPE html>
@@ -115,9 +111,9 @@ use DateTime;
                 Afficher l'âge des 2 élèves.
             </p>
             <div class="exercice-sandbox">
-            <?php
-                    echo '<p>J\'ai ' . $student1->getAge() . ' ans. <br>';
-                    echo 'J\'ai ' . $student2->getAge() . ' ans.</p>';
+                <?php
+                echo '<p>J\'ai ' . $student1->getAge() . ' ans. <br>';
+                echo 'J\'ai ' . $student2->getAge() . ' ans.</p>';
                 ?>
 
             </div>

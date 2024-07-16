@@ -1,5 +1,5 @@
 <?php
-namespace App\School;
+namespace App\Objects;
 
 abstract class Person
 {
