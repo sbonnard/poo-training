@@ -19,62 +19,6 @@ class Teacher extends Person
         $this->subjects = $subjects;
     }
 
-
-
-    /**
-     * Get the value of lastname
-     */
-    public function getLastname()
-    {
-        return $this->lastname;
-    }
-
-    /**
-     * Set the value of lastname
-     *
-     * @return  self
-     */
-    public function setLastname($lastname)
-    {
-        $this->lastname = $lastname;
-    }
-
-    /**
-     * Get the value of firstname
-     */
-    public function getFirstname()
-    {
-        return $this->firstname;
-    }
-
-    /**
-     * Set the value of firstname
-     *
-     * @return  self
-     */
-    public function setFirstname($firstname)
-    {
-        $this->firstname = $firstname;
-    }
-
-    /**
-     * Get the value of school
-     */
-    public function getSchool()
-    {
-        return $this->school;
-    }
-
-    /**
-     * Set the value of school
-     *
-     * @return  self
-     */
-    public function setSchool($school)
-    {
-        $this->school = $school;
-    }
-
     /**
      * Get the value of subjects
      */
