@@ -1,3 +1,7 @@
+<?php
+require_once "./include/_Classes.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,7 +40,14 @@
                 Créer 2 professeurs différents.
             </p>
             <div class="exercice-sandbox">
-                
+                <?php
+                $prof1 = new Prof ('Umbridge', 'Dolores', 'Lycée de catch de Moscou', ['Catch contre un Ours', 'Défense contre les forces du mal']);
+
+                $prof2 = new Prof ('Coffey', 'John', 'Collège de Pékin', ['Dressage de rats', 'Naturopathie', 'Urologie']);
+
+                var_dump($prof1);
+                var_dump($prof2);
+                ?>
             </div>
         </section>
         

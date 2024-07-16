@@ -1,12 +1,22 @@
 <?php
 
-class Student
+class Person {
+    protected string $lastname;
+    protected string $firstname;
+    protected string $school;
+
+    public function __construct(string $lastname, string $firstname, string $school)
+    {
+        $this->lastname = $lastname;
+        $this->firstname = $firstname;
+        $this->school = $school;
+}
+}
+
+class Student extends Person
 {
-    private string $lastname;
-    private string $firstname;
-    private DateTime $birthdate;
-    private string $level;
-    private string $school;
+    protected DateTime $birthdate;
+    protected string $level;
 
     /**
      * A constructor for all infos of the object Student.
@@ -16,13 +26,11 @@ class Student
      * @param string $birthdate - Student's birthdate.
      * @param string $level - Student's level.
      */
-    public function __construct(string $lastname, string $firstname, DateTime $birthdate, string $level, string $school)
+    public function __construct(string $lastname, string $firstname, string $school, DateTime $birthdate,  string $level)
     {
-        $this->lastname = $lastname;
-        $this->firstname = $firstname;
+        parent::__construct($lastname, $firstname, $school);
         $this->birthdate = $birthdate;
         $this->level = $level;
-        $this->school = $school;
     }
 
     // ---------------------------------
@@ -174,7 +182,17 @@ function introduceMyself(): string
 }
 
 
+class Prof extends Person {
+    
+    // STATIC PROPERTIES
+    public const TITLE = 'Professeur';
 
+    // INSTANCE PROPERTIES
+    private array $subjects = [];
 
-$student1 = new Student('Molotov', 'Zangief', new DateTime(), '2nde', '');
-$student2 = new Student('Li', 'Chun-Li', new DateTime(), '6ème', '');
+    public function __construct(string $lastname, string $firstname, string $school, array $subjects)
+    {
+        parent::__construct($lastname, $firstname, $school);
+        $this->subjects = $subjects;
+    }
+}

@@ -1,8 +1,6 @@
 <?php
-require_once "./include/_Student.php";
-require_once "./include/_Prof.php";
+require_once "./include/_Classes.php";
 require_once "./include/_functions.php";
-var_dump(intval(date('Y')));
 ?>
 
 <!DOCTYPE html>
@@ -44,8 +42,8 @@ var_dump(intval(date('Y')));
             </p>
             <div class="exercice-sandbox">
                 <?php
-                $student1 = new Student('Molotov', 'Zangief', new DateTime(), '2nde', '');
-                $student2 = new Student('Li', 'Chun-Li', new DateTime(), '6ème', '');
+                $student1 = new Student('Molotov', 'Zangief', '', new DateTime(), 'première');
+                $student2 = new Student('Li', 'Chun-Li', '', new DateTime(), '6ème');
 
                 var_dump($student1);
                 var_dump($student2);
