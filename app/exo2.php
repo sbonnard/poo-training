@@ -28,7 +28,7 @@ require_once "./include/_Classes.php";
                 </ul>
             </nav>
         </header>
-        
+
         <!-- QUESTION 1 -->
         <section class="exercice">
             <h2 class="exercice-ttl">Question 1</h2>
@@ -41,17 +41,17 @@ require_once "./include/_Classes.php";
             </p>
             <div class="exercice-sandbox">
                 <?php
-                $prof1 = new Prof ('Umbridge', 'Dolores', 'Lycée de catch de Moscou', ['Catch contre un Ours', 'Défense contre les forces du mal']);
+                $prof1 = new Teacher('Ombrage', 'Dolores', 'Poudlard', ['Catch contre un Ours', 'Défense contre les forces du mal']);
 
-                $prof2 = new Prof ('Coffey', 'John', 'Collège de Pékin', ['Dressage de rats', 'Naturopathie', 'Urologie']);
+                $prof2 = new Teacher('Coffey', 'John', 'Lycée Technique du Wyoming', ['Dressage de rats', 'Naturopathie', 'Urologie']);
 
                 var_dump($prof1);
                 var_dump($prof2);
                 ?>
             </div>
         </section>
-        
-        
+
+
         <!-- QUESTION 2 -->
         <section class="exercice">
             <h2 class="exercice-ttl">Question 2</h2>
@@ -63,11 +63,17 @@ require_once "./include/_Classes.php";
                 Afficher les écoles des 2 professeurs.
             </p>
             <div class="exercice-sandbox">
-                
+                <?php
+                $prof1->setSchool('Lycée de catch de Moscou');
+                $prof2->setSchool('Collège de Pékin');
+
+                echo '<p>' . $prof1->getFirstname() . ' ' . $prof1->getLastname() . ' est professeur au ' . $prof1->getSchool() . '.</p><br>';
+                echo '<p>' . $prof2->getFirstname() . ' ' . $prof2->getLastname() . ' est professeur au ' . $prof2->getSchool() . '.</p>';
+                ?>
             </div>
         </section>
-        
-        
+
+
         <!-- QUESTION 3 -->
         <section class="exercice">
             <h2 class="exercice-ttl">Question 3</h2>
@@ -77,7 +83,17 @@ require_once "./include/_Classes.php";
                 Tester l'ajout, la suppression et l'affichage sur chacun des profs.
             </p>
             <div class="exercice-sandbox">
-                
+                <?php
+                $prof1->addSubject('Peinture sur porcelaine');
+                $prof2->addSubject('Repassage de salopettes');
+
+                $prof2->deleteSubject('Dressage de rats');
+
+                // var_dump(explode(', ', $prof2->getSubjects()));
+
+                echo '<p>' . $prof1->showSubjects() . '</p><br>';
+                echo '<p>' . $prof2->showSubjects() . '</p>';
+                ?>
             </div>
         </section>
 
@@ -92,11 +108,15 @@ require_once "./include/_Classes.php";
                 Afficher la phrase de présentation des 2 profs.
             </p>
             <div class="exercice-sandbox">
-                
+                <?php
+                echo '<p>' . $prof1->introduceMyself() . '</p><br>';
+                echo '<p>' . $prof2->introduceMyself() . '</p>';
+                ?>
             </div>
         </section>
 
     </div>
     <div class="copyright">© Guillaume Belleuvre, 2023 - DWWM</div>
 </body>
+
 </html>
