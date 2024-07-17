@@ -12,9 +12,11 @@ class HighSchool extends School
         'Terminale'
     ];
 
-    public function __construct(string $schoolName, string $adress, array $level) {
+    public function __construct(string $schoolName, string $adress, array $level = null) {
         parent::__construct($schoolName, $adress);
-        $this->level = $level;
+        if ($level !== null) {
+            $this->level = $level;
+        }
     }
 
     /**

@@ -65,7 +65,16 @@ use App\Objects\School;
                 Créer une école de chaque type.
             </p>
             <div class="exercice-sandbox">
+                <?php
+                $gradeSchool = new GradeSchool('École Jacques Villeret', '2 rue des pommiers, Saint-Rémy-sur-Orne');
+                var_dump($gradeSchool);
 
+                $college = new College('Collège Mireille Matthieu', '92bis rue Charles Henri de Prépin, Reims');
+                var_dump($college);
+
+                $highSchool = new HighSchool('Lycée Zucker', '18 rue de la sdale de pommes de terre, Berlin');
+                var_dump($highSchool);
+                ?>
             </div>
         </section>
 
