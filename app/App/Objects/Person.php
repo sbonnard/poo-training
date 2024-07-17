@@ -1,13 +1,19 @@
 <?php
+
 namespace App\Objects;
 
 abstract class Person
 {
+    // STATIC PROPERTIES
+    protected static string $sentence = 'Bonjour, je m\'appelle ##lastname## ##firstname##';
+
+
+    // INSTANCE PROPERTIES
     protected string $lastname;
     protected string $firstname;
     protected string $school;
 
-    public function __construct(string $lastname, string $firstname, string $school)
+    public function initialize(string $lastname, string $firstname, string $school)
     {
         $this->lastname = $lastname;
         $this->firstname = $firstname;
@@ -61,7 +67,7 @@ abstract class Person
         return $this->lastname;
     }
 
-        /**
+    /**
      * get school
      *
      * @return string
@@ -80,5 +86,42 @@ abstract class Person
     {
         $this->school = $school;
     }
-}
 
+    // -------------------
+    // INSTANCE METHODS
+    // -------------------
+
+
+    /**
+     * Introduce my self with a sentence.
+     *
+     * @return string
+     */
+    public function introduceMySelf(): string
+    {
+        preg_match_all('/##(\w+)##/', static::$sentence, $match);
+
+        // $values = [];
+        // foreach ($match[1] as $key) {
+        //     $values[] = $this->getValueFromKey($key);
+        // }
+        $values = array_map([$this, 'getValueFromKey'], $match[1]);
+
+        return str_replace($match[0], $values, static::$sentence);
+    }
+
+    /**
+     * Get a value from a property or named method.
+     *
+     * @param string $key - Property or method name
+     * @return string - value from property or method
+     */
+    private function getValueFromKey(string $key): string
+    {
+        if (isset($this->$key)) return $this->$key;
+
+        if (in_array($key, get_class_methods($this))) return $this->$key();
+
+        return '';
+    }
+}

@@ -5,12 +5,16 @@ namespace App\Objects;
 
 class Teacher extends Person
 {
+    // STATIC PROPERTIES
+    protected static string $sentence = 'Bonjour, je m\'appelle ##firstname## ##lastname##  et j\'enseigne à l\'école ##school## les matières suivantes : ##showSubjects##';
+
+
     // INSTANCE PROPERTIES
     private array $subjects = [];
 
     public function __construct(string $lastname, string $firstname, string $school = '', array $subjects = [])
     {
-        parent::__construct($lastname, $firstname, $school);
+        parent::initialize($lastname, $firstname, $school);
 
         $this->subjects = $subjects;
     }
@@ -44,15 +48,6 @@ class Teacher extends Person
         $this->subjects[] = $newSubject;
     }
 
-    /**
-     * Show every subjects of a professor in a string
-     *
-     * @return string
-     */
-    public function showSubjects(): string
-    {
-        return 'Professeur ' . $this->firstname . ' ' . $this->lastname . " : " . $this->getSubjects() . '.';
-    }
 
     /**
      * Delete a subject of a teacher.
@@ -69,22 +64,32 @@ class Teacher extends Person
         }
     }
 
-    /** Get sentence for exercice 6.
+    /**
+     * Show every subjects of a professor in a string
      *
-     * @param [type] $student - The student concerned.
-     * @param [type] $diffStudent - The age of the student.
-     * @return string - A sentence that answers to question 6.
+     * @return string
      */
-    function introduceMyself(): string
+    public function showSubjects(): string
     {
-        return 'Bonjour, je m\'appelle '
-            . $this->firstname
-            . ' '
-            . $this->lastname
-            . ' et j\enseigne à l\'école '
-            . $this->school
-            . ' les matières suivantes : '
-            . $this->getSubjects()
-            . '.';
+        return 'Professeur ' . $this->firstname . ' ' . $this->lastname . " : " . $this->getSubjects() . '.';
     }
+
+    // /** Get sentence for exercice 6.
+    //  *
+    //  * @param [type] $student - The student concerned.
+    //  * @param [type] $diffStudent - The age of the student.
+    //  * @return string - A sentence that answers to question 6.
+    //  */
+    // function introduceMyself(): string
+    // {
+    //     return 'Bonjour, je m\'appelle '
+    //         . $this->firstname
+    //         . ' '
+    //         . $this->lastname
+    //         . ' et j\enseigne à l\'école '
+    //         . $this->school
+    //         . ' les matières suivantes : '
+    //         . $this->getSubjects()
+    //         . '.';
+    // }
 }

@@ -7,6 +7,11 @@ use App\Objects\Person;
 
 class Student extends Person
 {
+    // STATIC PROPERTIES
+    protected static string $sentence = 'Bonjour, je m\'appelle ##lastname## ##firstname##, j\'ai ##getAge## ans et je vais à l\'école ##school## en classe de ##level##.';
+
+
+    // INSTANCE PROPERTIES
     protected DateTime $birthdate;
     protected string $level;
 
@@ -20,7 +25,7 @@ class Student extends Person
      */
     public function __construct(string $lastname, string $firstname, string $school, DateTime $birthdate,  string $level)
     {
-        parent::__construct($lastname, $firstname, $school);
+        parent::initialize($lastname, $firstname, $school);
         $this->birthdate = $birthdate;
         $this->level = $level;
     }
@@ -86,24 +91,24 @@ class Student extends Person
         return $this->birthdate->diff(new DateTime())->y;
     }
 
-    /** Get sentence for exercice 6.
-     *
-     * @param [type] $student - The student concerned.
-     * @param [type] $diffStudent - The age of the student.
-     * @return string - A sentence that answers to question 6.
-     */
-    function introduceMyself(): string
-    {
-        return 'Bonjour, je m\'appelle '
-            . $this->firstname
-            . ' '
-            . $this->lastname
-            . ', j\'ai '
-            . $this->getAge()
-            . ' ans et je vais à l\'école '
-            . $this->school
-            . ' en classe de '
-            . $this->level
-            . '.';
-    }
+    // /** Get sentence for exercice 6.
+    //  *
+    //  * @param [type] $student - The student concerned.
+    //  * @param [type] $diffStudent - The age of the student.
+    //  * @return string - A sentence that answers to question 6.
+    //  */
+    // function introduceMyself(): string
+    // {
+    //     return 'Bonjour, je m\'appelle '
+    //         . $this->firstname
+    //         . ' '
+    //         . $this->lastname
+    //         . ', j\'ai '
+    //         . $this->getAge()
+    //         . ' ans et je vais à l\'école '
+    //         . $this->school
+    //         . ' en classe de '
+    //         . $this->level
+    //         . '.';
+    // }
 }
