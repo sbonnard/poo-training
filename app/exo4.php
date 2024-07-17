@@ -88,7 +88,10 @@ use App\Objects\School;
                 Tester la méthode créée.
             </p>
             <div class="exercice-sandbox">
-
+                <?php
+                echo '<p>' . $gradeSchool->supportsLevel('CP') . '</p>';
+                echo '<p>' . $college->supportsLevel('seconde') . '</p>';
+                ?>
             </div>
         </section>
 

@@ -50,4 +50,18 @@ class GradeSchool extends School
     {
         return implode(', ', $this->level);
     }
+
+    /**
+     * CHecks if a school accepts a school level or not.
+     *
+     * @param string $searchedLevel - The searched level.
+     * @return string - The string that says if a school accepts a level or not.
+     */
+    public function supportsLevel(string $searchedLevel):string {
+        if(in_array($searchedLevel, $this->level)) {
+            return 'L\'école ' . $this->getSchoolName() . ' accepte le niveau ' . $searchedLevel . '.';
+        } else {
+            return 'L\'école ' . $this->getSchoolName() . ' n\'accepte pas le niveau ' . $searchedLevel . '.';
+        }
+    }
 }
