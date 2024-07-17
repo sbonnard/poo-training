@@ -43,9 +43,9 @@ use App\Objects\Teacher;
             </p>
             <div class="exercice-sandbox">
                 <?php
-                $prof1 = new Teacher('Ombrage', 'Dolores', 'Poudlard', ['Catch contre un Ours', 'Défense contre les forces du mal']);
+                $prof1 = new Teacher('Ombrage', 'Dolores', 'Poudlard', 'Cachée quelque part en Angleterre près d\'un lac ou à peu près', ['Catch contre un Ours', 'Défense contre les forces du mal']);
 
-                $prof2 = new Teacher('Coffey', 'John', 'Lycée Technique du Wyoming', ['Dressage de rats', 'Naturopathie', 'Urologie']);
+                $prof2 = new Teacher('Coffey', 'John', 'Lycée Technique du Wyoming', '7 rue de l\'Ours, Moscou', ['Dressage de rats', 'Naturopathie', 'Urologie']);
 
                 var_dump($prof1);
                 var_dump($prof2);
@@ -66,11 +66,11 @@ use App\Objects\Teacher;
             </p>
             <div class="exercice-sandbox">
                 <?php
-                $prof1->setSchool('Lycée de catch de Moscou');
-                $prof2->setSchool('Collège de Pékin');
+                $prof1->setSchoolName('Lycée de catch de Moscou');
+                $prof2->setSchoolName('Collège de Pékin');
 
-                echo '<p>' . $prof1->getFirstname() . ' ' . $prof1->getLastname() . ' est professeur au ' . $prof1->getSchool() . '.</p><br>';
-                echo '<p>' . $prof2->getFirstname() . ' ' . $prof2->getLastname() . ' est professeur au ' . $prof2->getSchool() . '.</p>';
+                echo '<p>' . $prof1->getFirstname() . ' ' . $prof1->getLastname() . ' est professeur au ' . $prof1->getSchoolName() . '.</p><br>';
+                echo '<p>' . $prof2->getFirstname() . ' ' . $prof2->getLastname() . ' est professeur au ' . $prof2->getSchoolName() . '.</p>';
                 ?>
             </div>
         </section>

@@ -104,7 +104,9 @@ use App\Objects\School;
                 Ajuster le code de toutes les classes afin que tous les exercices précédents fonctionnent à nouveau.
             </p>
             <div class="exercice-sandbox">
-
+                <?php
+                echo 'C\'est tout bon !'
+                ?>
             </div>
         </section>
     </div>

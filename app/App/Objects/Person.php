@@ -2,7 +2,7 @@
 
 namespace App\Objects;
 
-abstract class Person
+abstract class Person extends School
 {
     // STATIC PROPERTIES
     protected static string $sentence = 'Bonjour, je m\'appelle ##lastname## ##firstname##';
@@ -11,13 +11,12 @@ abstract class Person
     // INSTANCE PROPERTIES
     protected string $lastname;
     protected string $firstname;
-    protected string $school;
 
-    public function initialize(string $lastname, string $firstname, string $school)
+    public function initialize(string $lastname, string $firstname, string $schoolName, string $adress)
     {
+        parent::__construct($schoolName, $adress);
         $this->lastname = $lastname;
         $this->firstname = $firstname;
-        $this->school = $school;
     }
 
     // ---------------------------------
@@ -65,26 +64,6 @@ abstract class Person
     public function getLastname(): string
     {
         return $this->lastname;
-    }
-
-    /**
-     * get school
-     *
-     * @return string
-     */
-    public function getSchool(): string
-    {
-        return $this->school;
-    }
-
-    /**
-     * set school
-     *
-     * @return string
-     */
-    public function setSchool(string $school): void
-    {
-        $this->school = $school;
     }
 
     // -------------------

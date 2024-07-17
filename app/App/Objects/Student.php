@@ -23,9 +23,9 @@ class Student extends Person
      * @param string $birthdate - Student's birthdate.
      * @param string $level - Student's level.
      */
-    public function __construct(string $lastname, string $firstname, string $school, DateTime $birthdate,  string $level)
+    public function __construct(string $lastname, string $firstname, string $schoolName, DateTime $birthdate,  string $level, string $adress)
     {
-        parent::initialize($lastname, $firstname, $school);
+        parent::initialize($lastname, $firstname, $schoolName, $adress);
         $this->birthdate = $birthdate;
         $this->level = $level;
     }

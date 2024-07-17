@@ -12,9 +12,9 @@ class Teacher extends Person
     // INSTANCE PROPERTIES
     private array $subjects = [];
 
-    public function __construct(string $lastname, string $firstname, string $school = '', array $subjects = [])
+    public function __construct(string $lastname, string $firstname, string $adress, string $schoolName = '',  array $subjects = [])
     {
-        parent::initialize($lastname, $firstname, $school);
+        parent::initialize($lastname, $firstname, $schoolName, $adress);
 
         $this->subjects = $subjects;
     }
@@ -71,7 +71,7 @@ class Teacher extends Person
      */
     public function showSubjects(): string
     {
-        return 'Professeur ' . $this->firstname . ' ' . $this->lastname . " : " . $this->getSubjects() . '.';
+        return implode(", ", $this->subjects);
     }
 
     // /** Get sentence for exercice 6.

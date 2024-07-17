@@ -44,8 +44,8 @@ use App\Objects\Student;
             </p>
             <div class="exercice-sandbox">
                 <?php
-                $student1 = new Student('Molotov', 'Zangief', '', new DateTime(), 'première');
-                $student2 = new Student('Li', 'Chun-Li', '', new DateTime(), '6ème');
+                $student1 = new Student('Molotov', 'Zangief', '', new DateTime(), 'première', "");
+                $student2 = new Student('Li', 'Chun-Li', '', new DateTime(), '6ème', "");
 
                 var_dump($student1);
                 var_dump($student2);
@@ -129,11 +129,11 @@ use App\Objects\Student;
             </p>
             <div class="exercice-sandbox">
                 <?php
-                $student1->setSchool('Lycée de catch de Moscou');
-                $student2->setSchool('Collège de Pékin');
+                $student1->setSchoolName('Lycée de catch de Moscou');
+                $student2->setSchoolName('Collège de Pékin');
 
-                echo '<p>' . $student1->getFirstname() . ' va au ' . $student1->getSchool() .  '.</p>';
-                echo '<p>' . $student2->getFirstname() . ' va au ' . $student2->getSchool() .  '.</p>';
+                echo '<p>' . $student1->getFirstname() . ' va au ' . $student1->getSchoolName() .  '.</p>';
+                echo '<p>' . $student2->getFirstname() . ' va au ' . $student2->getSchoolName() .  '.</p>';
                 ?>
             </div>
         </section>
